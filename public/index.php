@@ -5,12 +5,16 @@ use App\Library\Router;
 require '../vendor/autoload.php';
 
 try {
+
     $route = new Router;
     $route->add('/', 'GET', 'HomeController:index');
     $route->add('/cart', 'GET', 'CartController:index');
-    $route->add('/cart/add', 'GET', 'CartController:store');
-    $route->add('/contact', 'GET', 'ContactController:inde');
-    $route->init();    
+    $route->add('/cart/add', 'GET', 'CartController:add');
+    $route->add('/login', 'GET', 'LoginController:index');
+    $route->add('/login', 'POST', 'LoginController:store');
+
+    $route->init(); 
+
 } catch (Exception $e) {
     // dump('Error: '.$e->getMessage().' - ['.$e->getFile().'] ('.$e->getLine().')');
     echo "<pre>";
