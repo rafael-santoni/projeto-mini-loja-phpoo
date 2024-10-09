@@ -4,10 +4,10 @@ namespace App\Controllers;
 
 use App\Library\View;
 
-class HomeController
+class CartController
 {
     public function index()
     {
-        View::render('home');
+        View::render('cart');
     }
 }

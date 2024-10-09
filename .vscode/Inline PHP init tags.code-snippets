@@ -1,0 +1,10 @@
+{
+  "Inline PHP init tags": {
+    "scope": "html,php",
+    "prefix": "<?=",
+    "body": [
+      "<?= $1 ?>"
+    ],
+    "description": "Insere em linha, as tags de inicialização do PHP"
+  }
+}
