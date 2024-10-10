@@ -27,10 +27,12 @@ class CartInfo
 
     public static function getTotalProductsInCart()
     {
-        if(isset($_SESSION['cart']['products'])) {
+        /* if(isset($_SESSION['cart']['products'])) {
             return count($_SESSION['cart']['products']);
         }
 
-        return 0;
+        return 0; */
+        
+        return count(self::getCart());
     }
 }

@@ -4,7 +4,7 @@ namespace App\Library;
 
 readonly class Route
 {
-    public function __construct(private string $uri, private string $request, public string $controller) {}
+    public function __construct(public string $uri, public string $request, public string $controller) {}
 
     private function currentUri()
     {
