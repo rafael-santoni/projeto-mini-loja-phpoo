@@ -2,6 +2,8 @@
 
 namespace App\Library;
 
+use App\Library\CartInfo;
+
 class Cart
 {
 
@@ -12,10 +14,11 @@ class Cart
         }
 
         $inCart = false;
+        $cart = CartInfo::getCart();
         $this->setTotal($product);
-        if(count($this->getCart()) > 0) {
+        if(count($cart) > 0) {
 
-            foreach ($this->getCart() as $productInCart) {
+            foreach ($cart as $productInCart) {
 
                 if($productInCart->getId() === $product->getId()) {
 
@@ -42,7 +45,7 @@ class Cart
             $_SESSION['cart']['products'] = [];
         }
 
-        $_SESSION['cart']['products'][] = $product;
+        $_SESSION['cart']['products'][$product->getSlug()] = $product;
     }
 
     private function setTotal(Product $product)
@@ -58,7 +61,7 @@ class Cart
     {
         if(isset($_SESSION['cart']['products'])) {
             echo 'passou por aqui';
-            foreach ($this->getCart() as $index => $product) {
+            foreach (CartInfo::getCart() as $index => $product) {
                 
                 if($product->getId() === $id) {
                     unset($_SESSION['cart']['products'][$index]);
@@ -70,7 +73,7 @@ class Cart
         }
     }
 
-    public function getCart()
+/*     public function getCart()
     {
         return $_SESSION['cart']['products'] ?? [];
     }
@@ -78,6 +81,6 @@ class Cart
     public function getTotal()
     {
         return $_SESSION['cart']['total'] ?? 0;
-    }
+    } */
 
 }

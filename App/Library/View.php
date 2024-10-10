@@ -3,7 +3,7 @@
 namespace App\Library;
 
 // use app\library\Auth;
-use App\Library\Cart;
+use App\Library\CartInfo;
 use League\Plates\Engine;
 use Exception;
 
@@ -27,7 +27,7 @@ class View
             throw new Exception("View {$view} does not exist! :(");
         }
 
-        self::addInstances('cart', new Cart);
+        self::addInstances('cart', new CartInfo);
         // self::addInstances('auth', new Auth);
 
         $templates = new Engine($filePath);

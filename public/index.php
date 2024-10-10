@@ -4,6 +4,8 @@ use App\Library\Router;
 
 require '../vendor/autoload.php';
 
+session_start();
+
 try {
 
     $route = new Router;

@@ -8,6 +8,7 @@ class Product
     private int $id;
     private string $name;
     private int $price;
+    private string $slug;
     private int $quantity;
     
     public function setId(int $id): void
@@ -22,8 +23,12 @@ class Product
     
     public function setPrice(int $price): void
     {
-        $this->price = $price;
-        
+        $this->price = $price;   
+    }
+    
+    public function setSlug(string $slug): void
+    {
+        $this->slug = $slug;
     }
     
     public function setQuantity(int $quantity): void
@@ -44,6 +49,11 @@ class Product
     public function getPrice(): int
     {
         return $this->price;
+    }
+    
+    public function getSlug(): string
+    {
+        return $this->slug;
     }
     
     public function getQuantity(): int
