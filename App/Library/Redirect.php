@@ -51,8 +51,5 @@ class Redirect
         (!isset($_SESSION['redirect'])) ? 
             self::registerFirstRedirect($route) : 
             self::registerRedirect($route);
-
-        
-        var_dump($_SESSION['redirect']);
     }
 }

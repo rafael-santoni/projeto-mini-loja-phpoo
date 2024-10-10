@@ -28,6 +28,7 @@ class CartController
             $product->setName($productInfo->name);
             $product->setPrice($productInfo->price);
             $product->setSlug($productInfo->slug);
+            $product->setImage($productInfo->image);
             $product->setQuantity(1);
         
             $cart = new Cart;
@@ -35,6 +36,18 @@ class CartController
             
             Redirect::back();
             // header('Location: /');
+        }
+    }
+
+    public function destroy()
+    {
+        if(isset($_GET['id'])) {
+            $id = strip_tags($_GET['id']);
+
+            $cart = new Cart;
+            $cart->remove($id);
+
+            return Redirect::back();
         }
     }
 }
