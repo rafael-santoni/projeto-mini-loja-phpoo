@@ -2,12 +2,16 @@
 
 namespace App\Controllers;
 
+use App\Database\Models\Product;
+use App\Database\Models\User;
 use App\Library\View;
 
 class HomeController
 {
     public function index()
     {
-        View::render('home');
+        $products = Product::all('id,name,slug,price,image');
+
+        View::render('home', ['products' => $products]);
     }
 }
