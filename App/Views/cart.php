@@ -1,5 +1,7 @@
 <?= $this->layout('master'); ?>
 
+<?php //dump($instances['cart'])::getCart(); ?>
+
 <section class="h-100">
   <div class="container h-100 py-5">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -37,14 +39,20 @@
               </div>
 
               <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                <input id="form1" min="0" name="quantity" value="<?= $product->getQuantity(); ?>" type="number" class="form-control form-control-sm" />
+                <form action="/cart/update" method="post">
+
+                    <input type="hidden" name="slug" value="<?= $product->getSlug(); ?>" />
+                    <input id="form1" min="0" name="quantity" value="<?= $product->getQuantity(); ?>" type="number" class="form-control form-control-sm" />
+                
+                    <button type="submit" class="btn btn-sm btn-outline-success">Change</button>
+                </form>
               </div>
 
               <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                 <h5 class="mb-0">
                     R$ <?= number_format($product->getQuantity() * $product->getPrice(),2 , ',', '.'); ?>
                 </h5>
-                <a href="/cart/remove/?id=<?= $product->getId(); ?>" class="btn btn-outline-danger">Remove</a>
+                <a href="/cart/remove/?slug=<?= $product->getSlug(); ?>" class="btn btn-outline-danger">Remove</a>
               </div>
 
               <div class="col-md-1 col-lg-1 col-xl-1 text-end">

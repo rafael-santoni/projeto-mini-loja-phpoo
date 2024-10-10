@@ -62,10 +62,14 @@ class Cart
         $_SESSION['cart']['total'] += $product->getPrice() * $product->getQuantity();
     }
 
-    public function remove(int $id)
+    public function remove(string $slug)
     {
-        if(isset($_SESSION['cart']['products'])) {
-            echo 'passou por aqui';
+
+        if(array_key_exists($slug, $_SESSION['cart']['products'])) {
+            unset($_SESSION['cart']['products'][$slug]);
+        }
+
+        /* if(isset($_SESSION['cart']['products'])) {
             foreach (CartInfo::getCart() as $index => $product) {
                 
                 if($product->getId() === $id) {
@@ -75,6 +79,14 @@ class Cart
 
             }
 
+        } */
+    }
+
+    public function update(string $slug, string|int $quantity)
+    {
+        if(array_key_exists($slug, $_SESSION['cart']['products'])) {
+            $product = $_SESSION['cart']['products'][$slug];
+            $product->setQuantity($quantity);
         }
     }
 
