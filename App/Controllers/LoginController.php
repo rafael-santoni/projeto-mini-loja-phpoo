@@ -2,8 +2,11 @@
 
 namespace App\Controllers;
 
-use App\Library\Redirect;
 use App\Library\View;
+use App\Library\Redirect;
+use App\Database\Models\User;
+use App\Library\Auth;
+use Exception;
 
 class LoginController
 {
@@ -14,7 +17,30 @@ class LoginController
 
     public function store()
     {
-        // dump('LoginController -> store()');
-        Redirect::back();
+        $email = strip_tags($_POST['email']);
+        $password = strip_tags($_POST['password']);
+
+        $user = User::where('email', $email);
+
+        if(!$user) {
+            throw new Exception("Usuário ou senha inválidos");
+        }
+        
+        if(!password_verify($password, $user->password)) {
+            throw new Exception("Usuário ou senha inválidos");
+        }
+
+        Auth::loginAs($user);
+
+        Redirect::refresh();
+        
+        return Redirect::to('/');
+    }
+
+    public function destroy()
+    {
+        Auth::logout();
+
+        return Redirect::back();
     }
 }

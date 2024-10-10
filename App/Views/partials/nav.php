@@ -12,7 +12,16 @@
             
             <li class="nav-item"><a class="nav-link" href="/cart">Cart</a></li>
 
-            <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+            <li class="nav-item">
+                <?php if($instances['auth']::auth()): ?>
+                    <a class="nav-link">Bem vindo, <?= $instances['auth']::auth()->fullName; ?></a>
+                    <li class="nav-item">
+                        <a href="/logout" class="nav-link">Logout</a>
+                    </li>
+                <?php else: ?>
+                    <a class="nav-link" href="/login">Login</a>
+                <?php endif; ?>
+            </li>
             
             <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>

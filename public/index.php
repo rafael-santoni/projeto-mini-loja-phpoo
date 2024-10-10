@@ -16,6 +16,7 @@ try {
     $route->add('/cart/remove', 'GET', 'CartController:destroy');
     $route->add('/login', 'GET', 'LoginController:index');
     $route->add('/login', 'POST', 'LoginController:store');
+    $route->add('/logout', 'GET', 'LoginController:destroy');
 
     $route->init(); 
 

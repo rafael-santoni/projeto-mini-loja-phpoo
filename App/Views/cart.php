@@ -65,19 +65,24 @@
         <?php endforeach; ?>
 
         <?php if($instances['cart']::getTotalProductsInCart() > 0): ?>
-        <div class="card mb-4">
+        <!-- <div class="card mb-4">
           <div class="card-body p-4 d-flex flex-row">
+
             <div data-mdb-input-init class="form-outline flex-fill">
+
               <input type="text" id="form1" class="form-control form-control-lg" />
               <label class="form-label" for="form1">Discound code</label>
+
             </div>
+
             <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-warning btn-lg ms-3">Apply</button>
+          
           </div>
-        </div>
+        </div> -->
 
         <div class="card">
           <div class="card-body">
-            <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-warning btn-block btn-lg">Proceed to Pay</button>
+            <button  type="button" class="btn btn-warning btn-block btn-lg">Proceed to Pay</button>
           </div>
         </div>
         <?php endif; ?>
