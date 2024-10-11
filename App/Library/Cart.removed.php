@@ -1,8 +1,17 @@
 <?php
+/*
+    --***************************--
+    *****    Removed Class    *****
+    *****                     *****
+    *****   Esta classe foi   *****
+    ***** removida do projeto *****
+    --***************************--
 
 namespace App\Library;
 
-use App\Library\CartInfo;
+use App\Entities\ProductEntity;
+use App\Services\CartInfoService;
+// use App\Library\CartInfo;
 
 class Cart
 {
@@ -14,20 +23,21 @@ class Cart
         }
     }
     
-    public function add(Product $product)
+    public function add(ProductEntity $productEntity)
     {
         $this->init();
 
         $inCart = false;
-        $cart = CartInfo::getCart();
-        $this->setTotal($product);
+        // $cart = CartInfo::getCart();
+        $cart = CartInfoService::getCart();
+        $this->setTotal($productEntity);
         if(count($cart) > 0) {
 
             foreach ($cart as $productInCart) {
 
-                if($productInCart->getId() === $product->getId()) {
+                if($productInCart->getId() === $productEntity->getId()) {
 
-                    $quantity = $productInCart->getQuantity() + $product->getQuantity();
+                    $quantity = $productInCart->getQuantity() + $productEntity->getQuantity();
                     $productInCart->setQuantity($quantity);
 
                     $inCart = true;
@@ -40,7 +50,7 @@ class Cart
         }
 
         if(!$inCart) {
-            $this->setProductsInCart($product);
+            $this->setProductsInCart($productEntity);
         }
     }
 
@@ -53,13 +63,13 @@ class Cart
         $_SESSION['cart']['products'][$product->getSlug()] = $product;
     }
 
-    private function setTotal(Product $product)
+    private function setTotal(ProductEntity $productEntity)
     {
         if(!isset($_SESSION['cart']['total'])) {
             $_SESSION['cart']['total'] = 0;
         }
 
-        $_SESSION['cart']['total'] += $product->getPrice() * $product->getQuantity();
+        $_SESSION['cart']['total'] += $productEntity->getPrice() * $productEntity->getQuantity();
     }
 
     public function remove(string $slug)
@@ -88,3 +98,4 @@ class Cart
     } */
 
 }
+*/

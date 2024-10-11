@@ -2,7 +2,7 @@
 
 namespace App\Library;
 
-use App\Library\Route;
+use App\Core\Route;
 
 class Redirect
 {

@@ -9,6 +9,17 @@ use PDOException;
 abstract class Model
 {
     protected static string $table;
+    protected array $attributes = [];
+
+    public function __set(string $property, string $value)
+    {
+        $this->attributes[$property] = $value;
+    }
+
+    public function __get(string $property)
+    {
+        return $this->attributes[$property];
+    }
 
     public static function all(string $fields = '*')
     {

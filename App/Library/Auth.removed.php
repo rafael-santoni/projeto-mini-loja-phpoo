@@ -1,8 +1,16 @@
 <?php
+/*
+    --***************************--
+    *****    Removed Class    *****
+    *****                     *****
+    *****   Esta classe foi   *****
+    ***** removida do projeto *****
+    --***************************--
 
 namespace App\Library;
 
 use App\Database\Models\User;
+use App\Dto\AuthDto;
 use stdClass;
 
 class Auth
@@ -11,14 +19,9 @@ class Auth
     {
         if(!isset($_SESSION['auth'])) {
 
-            $stdClass = new stdClass;
-            $stdClass->id = $user->id;
-            $stdClass->firstName = $user->firstName;
-            $stdClass->lastName = $user->lastName;
-            $stdClass->fullName = $user->firstName.' '.$user->lastName;
+            $authDto = new AuthDto($user->id, $user->firstName, $user->lastName);
 
-            $_SESSION['auth'] = $stdClass;
-
+            $_SESSION['auth'] = $authDto;
         }
     }
 
@@ -34,3 +37,4 @@ class Auth
         }
     }
 }
+*/

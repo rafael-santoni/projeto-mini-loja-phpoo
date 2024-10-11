@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Library;
+namespace App\Core;
 
-use App\Library\Route;
-use App\Library\Controller;
+use App\Library\Redirect;
+use App\Core\Controller;
+use App\Core\Route;
 
 class Router {
 

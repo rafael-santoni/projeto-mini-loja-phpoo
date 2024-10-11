@@ -1,12 +1,13 @@
 <?php
 
-use App\Library\Router;
+use App\Core\Router;
+use Dotenv\Dotenv;
 
 require '../vendor/autoload.php';
 
 session_start();
 
-$dotenv = Dotenv\Dotenv::createImmutable(dirname(__FILE__, 2));
+$dotenv = Dotenv::createImmutable(dirname(__FILE__, 2));
 $dotenv->load();
 
 $route = new Router;

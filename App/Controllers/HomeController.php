@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Database\Models\Product;
-use App\Library\View;
+use App\Core\View;
 
 class HomeController
 {

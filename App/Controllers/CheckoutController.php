@@ -6,6 +6,9 @@ use App\Library\Auth;
 use Stripe\StripeClient;
 use App\Library\CartInfo;
 use App\Library\Redirect;
+use App\Services\AuthInfoService;
+use App\Services\CartInfoService;
+use App\Services\CheckoutService;
 use Exception;
 
 class CheckoutController
@@ -14,7 +17,7 @@ class CheckoutController
     {
         try {
 
-            if(!Auth::auth()) {
+            /* if(!AuthInfoService::isAuth()) {
                 throw new Exception("Para fazer o checkout você precisa estar logado");
             }
 
@@ -27,7 +30,7 @@ class CheckoutController
                 'cancel_url' => $baseUrl.'/cancel',
             ];
 
-            foreach (CartInfo::getCart() as $product) {
+            foreach (CartInfoService::getCart() as $product) {
                 $items['line_items'][] = [
                     'price_data' => [
                         'currency' => 'BRL',
@@ -41,8 +44,9 @@ class CheckoutController
                 
             }
 
-            $checkout_session = $stripe->checkout->sessions->create($items);
-
+            $checkout_session = $stripe->checkout->sessions->create($items); */
+            $checkoutService = new CheckoutService;
+            $checkout_session = $checkoutService->checkout();
             Redirect::to($checkout_session->url);
 
         } catch (Exception $e) {

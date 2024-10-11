@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Library;
+namespace App\Entities;
 
-class Product 
+class ProductEntity
 {
-
     private int $id;
     private string $name;
     private int $price;
@@ -71,5 +70,4 @@ class Product
     {
         return $this->quantity;
     }
-    
 }

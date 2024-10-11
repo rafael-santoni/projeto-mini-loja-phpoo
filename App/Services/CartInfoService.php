@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Library;
+namespace App\Services;
 
 use App\Database\Models\Product;
 
-class CartInfo
+class CartInfoService
 {
     public static function getCart()
     {

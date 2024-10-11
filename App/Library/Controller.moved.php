@@ -1,4 +1,12 @@
 <?php
+/*
+    --***********************--
+    *****   Moved Class   *****
+    *****                 *****
+    ***** Esta classe foi *****
+    *****   movida para   *****
+    ***** ./App/Core      *****
+    --***********************--
 
 namespace App\Library;
 
@@ -31,3 +39,4 @@ class Controller
         call_user_func_array([$controller, $action], []);
     }
 }
+*/

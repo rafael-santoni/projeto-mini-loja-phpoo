@@ -13,7 +13,7 @@
             <li class="nav-item"><a class="nav-link" href="/cart">Cart</a></li>
 
             <li class="nav-item">
-                <?php if($instances['auth']::auth()): ?>
+                <?php if($instances['auth']::isAuth()): ?>
                     <a class="nav-link">Bem vindo, <?= $instances['auth']::auth()->fullName; ?></a>
                     <li class="nav-item">
                         <a href="/logout" class="nav-link">Logout</a>
