@@ -34,7 +34,7 @@ class Cart
                     break;
 
                 }
-                
+
             }
 
         }
@@ -64,22 +64,9 @@ class Cart
 
     public function remove(string $slug)
     {
-
         if(array_key_exists($slug, $_SESSION['cart']['products'])) {
             unset($_SESSION['cart']['products'][$slug]);
         }
-
-        /* if(isset($_SESSION['cart']['products'])) {
-            foreach (CartInfo::getCart() as $index => $product) {
-                
-                if($product->getId() === $id) {
-                    unset($_SESSION['cart']['products'][$index]);
-                    $_SESSION['cart']['total'] -= $product->getPrice() * $product->getQuantity();
-                }
-
-            }
-
-        } */
     }
 
     public function update(string $slug, string|int $quantity)

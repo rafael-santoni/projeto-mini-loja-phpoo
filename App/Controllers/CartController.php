@@ -35,7 +35,6 @@ class CartController
             $cart->add($product);
             
             Redirect::back();
-            // header('Location: /');
         }
     }
 

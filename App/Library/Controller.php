@@ -6,8 +6,6 @@ use Exception;
 
 class Controller
 {
-    // private const NAMESPACE = 'App\\Controllers\\';
-
     public function call(Route $route)
     {
         $controller = $route->controller;
@@ -30,7 +28,6 @@ class Controller
             throw new Exception("Action {$action} does not exist! :(");
         }
 
-        // $controller->$action();
         call_user_func_array([$controller, $action], []);
     }
 }

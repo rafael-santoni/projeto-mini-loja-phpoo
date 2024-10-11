@@ -30,7 +30,6 @@ class View
 
         self::addInstances('cart', CartInfo::class);
         self::addInstances('auth', Auth::class);
-        // self::addInstances('auth', new Auth);
 
         $templates = new Engine($filePath);
         $templates->addData(['instances' => self::$instances]);

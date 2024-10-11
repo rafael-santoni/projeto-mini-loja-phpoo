@@ -20,7 +20,6 @@ class CartInfo
             }
         }
 
-        // return $_SESSION['cart']['total'] ?? 0;
         return $total;
     }
 
@@ -35,12 +34,6 @@ class CartInfo
 
     public static function getTotalProductsInCart()
     {
-        /* if(isset($_SESSION['cart']['products'])) {
-            return count($_SESSION['cart']['products']);
-        }
-
-        return 0; */
-        
         return count(self::getCart());
     }
 }
