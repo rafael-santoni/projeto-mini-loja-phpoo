@@ -3,9 +3,7 @@
 namespace App\Controllers;
 
 use App\Database\Models\Product;
-use App\Library\Cart;
 use App\Library\View;
-use Symfony\Component\VarDumper\VarDumper;
 
 class HomeController
 {

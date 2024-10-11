@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Library\Auth;
-use App\Library\Cart;
 use Stripe\StripeClient;
 use App\Library\CartInfo;
 use App\Library\Redirect;

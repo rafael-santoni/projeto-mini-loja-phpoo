@@ -1,1 +1,0 @@
-<h2 style="color: tomato;">Cancel Payment</h2>
