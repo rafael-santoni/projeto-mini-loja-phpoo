@@ -31,8 +31,6 @@ class LoginController
         }
 
         Auth::loginAs($user);
-
-        Redirect::refresh();
         
         return Redirect::to('/');
     }

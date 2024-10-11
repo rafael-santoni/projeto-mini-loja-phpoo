@@ -10,11 +10,16 @@ class Connection
 
     public static function connect()
     {
+        $host = $_ENV['DATABASE_HOST'];
+        $user = $_ENV['DATABASE_USER'];
+        $pass = $_ENV['DATABASE_PASS'];
+        $name = $_ENV['DATABASE_NAME'];
+
         if(!self::$connection) {
             self::$connection = new PDO(
-                'mysql:host=localhost;dbname=miniloja_phpoo',
-                'conn',
-                'ADMonly',
+                'mysql:host='.$host.';dbname='.$name,
+                $user,
+                $pass,
                 [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ]
             );
         }
